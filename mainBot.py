@@ -1,5 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+from sys import argv
+import logging
+
+from telegram.ext import Updater, CommandHandler, InlineQueryHandler
 
 import Functions.basicCommands as bc
 import Functions.randomCommands as rc
@@ -69,7 +73,7 @@ dispatcher.add_handler(InlineQueryHandler(iq.inlinequery))
 
 updater.start_polling(timeout=30)
 print("MainBot Completly Loaded.\nBot Working...")
-updater.bot.sendMessage(chat_id=chatIDDeveloper, text="Bot Iniciado")
+updater.bot.sendMessage(chat_id=bc.bd.chatIDDeveloper, text="Bot Iniciado")
 
 try:
     while 1:

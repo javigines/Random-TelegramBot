@@ -8,9 +8,9 @@ import Functions.basicData as bd
 
 #Command /flip
 def flip(bot, update):
-	startWithCommand(bot, update)
+	bd.startWithCommand(bot, update)
 
-	bot.sendMessage(chat_id=chat_id, text=flipC.flipCoinAnswer , reply_to_message_id=message.message_id)
+	bot.sendMessage(chat_id=bd.chat_id, text=flipC.flipCoinAnswer() , reply_to_message_id=bd.message.message_id)
 
 #Command /getInfo
 def getInfo(bot, update):

@@ -1,4 +1,4 @@
-
+from random import randint
 import Functions.message as ms										    ## Own module
 
 def flipCoinAnswer():
