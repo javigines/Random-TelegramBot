@@ -21,8 +21,8 @@ def inlinequery(bot, update):
             title="Flip",
             description="Flip a Coin",
             input_message_content=InputTextMessageContent(
-                 flipC.flipCoinAnswer)
+                 flipC.flipCoinAnswer())
         )
     ]
 
-    update.inline_query.answer(results)
+    update.inline_query.answer(results, cache_time=1)
