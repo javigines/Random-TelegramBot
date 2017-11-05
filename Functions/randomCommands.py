@@ -14,44 +14,44 @@ def flip(bot, update):
 
 #Command /getInfo
 def getInfo(bot, update):
-	startWithCommand(bot, update)
+	bd.startWithCommand(bot, update)
 
 #Command /randomNumer
 def randomNumer(bot, update, args=None):
-	startWithCommand(bot, update)
+	bd.startWithCommand(bot, update)
 
 #Command /remindMe
 def remindMe(bot, update, args=None):
-	startWithCommand(bot, update)
+	bd.startWithCommand(bot, update)
 
 #Command /stopwatch
 def stopwatch(bot, update):
-	startWithCommand(bot, update)
+	bd.startWithCommand(bot, update)
 
 #Command /newVote
 def newVote(bot, update):
-	startWithCommand(bot, update)
+	bd.startWithCommand(bot, update)
 
 #Command /secretMessage
 def secretMessage(bot, update, args=None):
-	startWithCommand(bot, update)
+	bd.startWithCommand(bot, update)
 
 #Command /anonymousMessage
 def anonymousMessage(bot, update, args=None):
-	startWithCommand(bot, update)
+	bd.startWithCommand(bot, update)
 
 #Command /case
 def case(bot, update):
-	startWithCommand(bot, update)
+	bd.startWithCommand(bot, update)
 
 #Command /imgur
 def imgur(bot, update):
-	startWithCommand(bot, update)
+	bd.startWithCommand(bot, update)
 
 #Command /shortLink
 def shortLink(bot, update):
-	startWithCommand(bot, update)
+	bd.startWithCommand(bot, update)
 
 #Command /note
 def note(bot, update):
-	startWithCommand(bot, update)
+	bd.startWithCommand(bot, update)

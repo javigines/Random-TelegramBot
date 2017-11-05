@@ -1,7 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from sys import argv
-import logging
+from sys import argv										## System module
+from subprocess import call									## System module
+from time import sleep										## System module
+import logging												## System module
 
 from telegram.ext import Updater, CommandHandler, InlineQueryHandler
 
@@ -77,7 +79,6 @@ updater.bot.sendMessage(chat_id=bc.bd.chatIDDeveloper, text="Bot Iniciado")
 
 try:
     while 1:
-        schedule.run_pending()
         sleep(1)
 except (KeyboardInterrupt, TypeError):
     print("Exception")

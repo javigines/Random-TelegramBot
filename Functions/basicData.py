@@ -1,14 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from telegram.ext import Updater, CommandHandler                ## pip install python-telegram-bot
-
-import Functions.message as ms										    ## Own module
 
 ## Debug chat_id
 chatIDDeveloper = 372406715
-
-
 
 ## Usefull Variables
 message = None
