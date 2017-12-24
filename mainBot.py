@@ -43,6 +43,8 @@ update_handler = CommandHandler('updateB', bc.updateB, pass_args=False, allow_ed
 dispatcher.add_handler(update_handler)
 changelog_handler = CommandHandler('changelog', bc.changelogB, pass_args=False, allow_edited=True)
 dispatcher.add_handler(changelog_handler)
+speak_handler = CommandHandler('speak', bc.speak, pass_args=True, allow_edited=True)
+dispatcher.add_handler(speak_handler)
 
 # Random Commands
 flip_handler = CommandHandler('flip', rc.flip, pass_args=False, allow_edited=True)

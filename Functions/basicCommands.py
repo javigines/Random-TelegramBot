@@ -81,4 +81,19 @@ def changelogB(bot, update):
 		bot.sendMessage(chat_id=bd.chat_id, text=ms.groupChangelogUser)
 
 
+# Changelog command /speak
+def speak(bot, update, args):
+	bd.startWithCommand(bot, update)
+
+	if bd.user_id == bd.chatIDDeveloper:
+		try:
+			bot.sendMessage(chat_id=args[0], text=' '.join(args).split('|')[1])
+			bot.sendMessage(chat_id=bd.chat_id, text=ms.messageSend)
+		except:
+			bot.sendMessage(chat_id=bd.chat_id, text=ms.incorrectChatId)
+	else:
+		bot.sendMessage(chat_id=bd.chat_id, text=ms.notAdmin[randint(0, len(ms.notAdmin)-1)])
+
+
+
 print("BasicCommands Module Loaded")
