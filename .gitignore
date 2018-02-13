@@ -99,3 +99,8 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+*.pkl
+*.txt
+.credentials/
+client_secret.json

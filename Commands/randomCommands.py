@@ -1,24 +1,34 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import Commands.flipCoin as flipC
+import Functions.randomFunctions as rf
 
 import Functions.basicData as bd
+import Functions.message as ms										    ## Own module
 
 
 #Command /flip
 def flip(bot, update):
 	bd.startWithCommand(bot, update)
 
-	bot.sendMessage(chat_id=bd.chat_id, text=flipC.flipCoinAnswer() , reply_to_message_id=bd.message.message_id)
+	bot.sendMessage(chat_id=bd.chat_id, text=rf.flipCoinFunction() , reply_to_message_id=bd.message.message_id)
 
 #Command /getInfo
 def getInfo(bot, update):
 	bd.startWithCommand(bot, update)
 
-#Command /randomNumer
+#Command /random
 def randomNumer(bot, update, args=None):
 	bd.startWithCommand(bot, update)
+
+	try:
+		if args is None or args == '' or args == []:
+			bot.sendMessage(chat_id=bd.chat_id, text=ms.numberAnswer.replace("$args1", str(rf.randomNumberFunction())), reply_to_message_id=bd.message.message_id)
+		else:
+			bot.sendMessage(chat_id=bd.chat_id, text=ms.numberAnswer.replace("$args1", str(rf.randomNumberFunction(int("".join(args))))) , reply_to_message_id=bd.message.message_id)
+	except ValueError as e:
+		bot.sendMessage(chat_id=bd.chat_id, text=ms.noNumber , reply_to_message_id=bd.message.message_id)
+
 
 #Command /remindMe
 def remindMe(bot, update, args=None):

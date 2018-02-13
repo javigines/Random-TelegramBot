@@ -1,57 +1,93 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+
+
+import logging																## System module
+import os
+logFile= os.path.dirname(os.path.abspath(__file__)) + os.sep+'/.logs/logCoreBot.log'
+try:
+	logging.basicConfig(
+	filename=logFile,
+	format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+	level=logging.INFO
+	)
+except Exception as e:
+	print("Se ha generado la siguiente excepción:\n\n"+str(e)+"\n\nCorrijala para ejecutar el programa.")
+	os._exit(1)
+
+logging.info(('-'*30)+' Bot Starting '+('-'*30))
+
 from sys import argv										## System module
 from subprocess import call									## System module
-from time import sleep										## System module
-import logging												## System module
-
-from telegram.ext import Updater, CommandHandler, InlineQueryHandler
-
-import Functions.basicCommands as bc
-import Functions.randomCommands as rc
-
-import Functions.inlineQuery as iq
-
-logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.WARNING)
-
-
+from time import sleep														## System module
 # Usefull for /restartB
 if(len(argv)>1):
 	sleep(2)
 	call("kill -9 " + str(argv[1]), shell=True)
+	logging.info('Bot restarting complete.')
 	sleep(2)
 
 
-token_file = open("token.txt", 'r')
+from telegram.ext import Updater, CommandHandler, InlineQueryHandler
+
+import Functions.basicData as bd
+import Commands.basicCommands as bc
+import Commands.randomCommands as rc
+import Commands.utilsCommands as uc
+
+import Commands.inlineCommands as iq
+
+
+try:
+	token_file = open("token.txt", 'r')
+except Exception as e:
+	print("Se ha generado la siguiente excepción:\n\n"+str(e)+"\n\nCorrijala para ejecutar el programa.")
+	os._exit(1)
+
 token = token_file.readline()
 token_file.close()
 
 updater = Updater(token, workers=200)
 dispatcher = updater.dispatcher
+dispatcher.add_error_handler(bd.basicErrorTelegramHandler)
+
 
 # Initialize "Command" handlers
 # Basic Commands
 start_handler = CommandHandler(list(['start','help']), bc.start, pass_args=False, allow_edited=True)
 dispatcher.add_handler(start_handler)
-restart_handler = CommandHandler(list(['restartB','rebootB']), bc.restartB, pass_args=False, allow_edited=True)
+restart_handler = CommandHandler(list(['restartP','rebootP']), bc.restartP, pass_args=False, allow_edited=True)
 dispatcher.add_handler(restart_handler)
-stop_handler = CommandHandler('stopB', bc.stopB, pass_args=False, allow_edited=True)
+stop_handler = CommandHandler('stopP', bc.stopP, pass_args=False, allow_edited=True)
 dispatcher.add_handler(stop_handler)
-leave_handler = CommandHandler('leaveB', bc.leaveGroup, pass_args=False, allow_edited=True)
+leave_handler = CommandHandler('leave', bc.leaveGroup, pass_args=False, allow_edited=True)
 dispatcher.add_handler(leave_handler)
-update_handler = CommandHandler('updateB', bc.updateB, pass_args=False, allow_edited=True)
-dispatcher.add_handler(update_handler)
-changelog_handler = CommandHandler('changelog', bc.changelogB, pass_args=False, allow_edited=True)
+changelog_handler = CommandHandler('changelog', bc.changelog, pass_args=False, allow_edited=True)
 dispatcher.add_handler(changelog_handler)
-speak_handler = CommandHandler('speak', bc.speak, pass_args=True, allow_edited=True)
+contact_handler = CommandHandler('contact', bc.contact, pass_args=True, allow_edited=True)
+dispatcher.add_handler(contact_handler)
+logging.info('Basic commands loaded correctly.')
+
+# Utils Commands
+update_handler = CommandHandler('updateP', uc.updateP, pass_args=False, allow_edited=True)
+dispatcher.add_handler(update_handler)
+speak_handler = CommandHandler('speakP', uc.speakP, pass_args=True, allow_edited=True)
 dispatcher.add_handler(speak_handler)
+download_handler = CommandHandler('downloadP', uc.downloadP, pass_args=True, allow_edited=True)
+dispatcher.add_handler(download_handler)
+getlog_handler = CommandHandler('getLogP', uc.getLogP, allow_edited=True)
+dispatcher.add_handler(getlog_handler)
+clearLog_handler = CommandHandler('clearlogP', uc.clearLogP, allow_edited=True)
+dispatcher.add_handler(clearLog_handler)
+logging.info('Utils commands loaded correctly.')
+
 
 # Random Commands
 flip_handler = CommandHandler('flip', rc.flip, pass_args=False, allow_edited=True)
 dispatcher.add_handler(flip_handler)
 getInfo_handler = CommandHandler('getInfo', rc.getInfo, pass_args=False, allow_edited=True)
 dispatcher.add_handler(getInfo_handler)
-randomNumer_handler = CommandHandler('randomNumer', rc.randomNumer, pass_args=False, allow_edited=True)
+randomNumer_handler = CommandHandler('random', rc.randomNumer, pass_args=True, allow_edited=True)
 dispatcher.add_handler(randomNumer_handler)
 remindMe_handler = CommandHandler('remindMe', rc.remindMe, pass_args=False, allow_edited=True)
 dispatcher.add_handler(remindMe_handler)
@@ -71,19 +107,14 @@ shortLink_handler = CommandHandler('shortLink', rc.shortLink, pass_args=False, a
 dispatcher.add_handler(shortLink_handler)
 note_handler = CommandHandler('note', rc.note, pass_args=False, allow_edited=True)
 dispatcher.add_handler(note_handler)
+logging.info('Random commands loaded correctly.')
 
 # Random Inline
 dispatcher.add_handler(InlineQueryHandler(iq.inlinequery))
 
-updater.start_polling(timeout=30)
-print("MainBot Completly Loaded.\nBot Working...")
-updater.bot.sendMessage(chat_id=bc.bd.chatIDDeveloper, text="Bot Iniciado")
+updater.start_polling(timeout=30, read_latency=5)
+logging.info('MainBot Completly Loaded.')
+logging.info('Bot Working.')
+updater.bot.sendMessage(chat_id=bd.chatIDDeveloper, text="Bot Iniciado")
 
-try:
-    while 1:
-        sleep(1)
-except (KeyboardInterrupt, TypeError):
-    print("Exception")
-finally:
-    updater.idle()
-    print("\nBot Stoped\nShuting down...")
+updater.idle()

@@ -7,7 +7,7 @@ from random import randint									## System module
 from telegram import InlineQueryResultArticle, ParseMode, \
     InputTextMessageContent
 
-import Commands.flipCoin as flipC
+import Functions.randomFunctions as rf
 
 import Functions.basicData as bd
 
@@ -21,7 +21,7 @@ def inlinequery(bot, update):
             title="Flip",
             description="Flip a Coin",
             input_message_content=InputTextMessageContent(
-                 flipC.flipCoinAnswer())
+                 rf.flipCoinAnswer())
         )
     ]
 
