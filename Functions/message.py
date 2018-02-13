@@ -72,4 +72,4 @@ flipTail = "Cruz"
 
 # Command /random
 numberAnswer = "Ha salido el $args1"
-noNumber = "No hs introducido un número válido"
+noNumber = "No has introducido un número válido"
