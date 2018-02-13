@@ -28,7 +28,7 @@ if(len(argv)>1):
 	sleep(2)
 
 
-from telegram.ext import Updater, CommandHandler, InlineQueryHandler
+from telegram.ext import Updater, CommandHandler, InlineQueryHandler, MessageHandler, Filters
 
 import Functions.basicData as bd
 import Commands.basicCommands as bc
@@ -108,6 +108,10 @@ dispatcher.add_handler(shortLink_handler)
 note_handler = CommandHandler('note', rc.note, pass_args=False, allow_edited=True)
 dispatcher.add_handler(note_handler)
 logging.info('Random commands loaded correctly.')
+
+forwardMessages_handler = MessageHandler(Filters.forwarded, rc.getInfo)
+dispatcher.add_handler(forwardMessages_handler)
+
 
 # Random Inline
 dispatcher.add_handler(InlineQueryHandler(iq.inlinequery))

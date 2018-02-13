@@ -25,4 +25,10 @@ def randomNumberFunction(number=11):
     log.info(number)
     return randint(0, number)
 
+
+def forwardedMessageFunction(message):
+    forwardMessage = message['forward_from']
+    return str(forwardMessage)[1:-1].replace(',', '\n')
+
+
 log.info('RandomFunctions Module Loaded.')

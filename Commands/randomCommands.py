@@ -1,6 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+
+import logging												## System module
+log = logging.getLogger(__name__)
+
 import Functions.randomFunctions as rf
 
 import Functions.basicData as bd
@@ -13,9 +17,12 @@ def flip(bot, update):
 
 	bot.sendMessage(chat_id=bd.chat_id, text=rf.flipCoinFunction() , reply_to_message_id=bd.message.message_id)
 
-#Command /getInfo
+# Forward Message
 def getInfo(bot, update):
 	bd.startWithCommand(bot, update)
+	
+	bot.sendMessage(chat_id=bd.chat_id, text=rf.forwardedMessageFunction(bd.message) , reply_to_message_id=bd.message.message_id)
+
 
 #Command /random
 def randomNumer(bot, update, args=None):
@@ -65,3 +72,8 @@ def shortLink(bot, update):
 #Command /note
 def note(bot, update):
 	bd.startWithCommand(bot, update)
+
+
+
+
+log.info('RandomCommands Module Loaded.')

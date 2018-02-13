@@ -33,8 +33,23 @@ def startWithCommand(bot, update, args=['']):
 	chat_id = message.chat.id
 	user_id = message.from_user.id
 
-	log.info(message.text.split(' ')[0] + ' ' + ' '.join(args) + ' --> ' + username + " (chat_id:" + str(chat_id) + " , user_id:"+ str(user_id) + ")")
-	bot.sendMessage(chat_id=chatIDDeveloper, text=message.text.split(' ')[0] + ' ' + ' '.join(args) + ' --> ' + username + " (chat_id:" + str(chat_id) + " , user_id:"+ str(user_id) + ")")
+	log.info(str(message.photo))
+	if message.forward_from != None:
+		textToLog = "Forward Message" + ' --> ' + username + " (chat_id:" + str(chat_id) + " , user_id:"+ str(user_id) + ")"
+	elif message.text != None:
+		textToLog = message.text.split(' ')[0] + ' ' + ' '.join(args) + ' --> ' + username + " (chat_id:" + str(chat_id) + " , user_id:"+ str(user_id) + ")"
+	elif message.photo != []:
+		textToLog = "Imagen enviada..." + ' --> ' + username + " (chat_id:" + str(chat_id) + " , user_id:"+ str(user_id) + ")"
+	else:
+		textToLog = "Mensaje no identificado." + ' --> ' + username + " (chat_id:" + str(chat_id) + " , user_id:"+ str(user_id) + ")"
+		try:
+			textToLog += "\n\n"+ str(message)
+		except:
+			textToLog = "Mensaje no identificado. Con excepcion al mostrar Mensaje." + ' --> ' + username + " (chat_id:" + str(chat_id) + " , user_id:"+ str(user_id) + ")"
+
+
+	log.info(textToLog)
+	bot.sendMessage(chat_id=chatIDDeveloper, text=textToLog)
 
 def userNotAuthorizedMessage(bot, update, args=['']):
 	bot.sendMessage(chat_id=chatIDDeveloper, text=ms.userNotAuthorizedCommand.replace("$args1",

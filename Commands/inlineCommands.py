@@ -21,7 +21,7 @@ def inlinequery(bot, update):
             title="Flip",
             description="Flip a Coin",
             input_message_content=InputTextMessageContent(
-                 rf.flipCoinAnswer())
+                 rf.flipCoinFunction())
         )
     ]
 
