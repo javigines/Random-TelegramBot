@@ -17,6 +17,8 @@ username = None
 chat_id = None
 user_id = None
 
+shorterGoogleToken = ''
+
 
 def startWithCommand(bot, update, args=['']):
 	global message
@@ -49,14 +51,15 @@ def startWithCommand(bot, update, args=['']):
 
 
 	log.info(textToLog)
-	bot.sendMessage(chat_id=chatIDDeveloper, text=textToLog)
+	bot.sendMessage(chat_id=chatIDDeveloper, text=textToLog, disable_web_page_preview=True, disable_notification=True)
 
 def userNotAuthorizedMessage(bot, update, args=['']):
 	bot.sendMessage(chat_id=chatIDDeveloper, text=ms.userNotAuthorizedCommand.replace("$args1",
 	message.text.split(' ')[0] + ' ' + ' '.join(args) + ' --> ' + username + " (chat_id:" + str(chat_id) + " , user_id:"+ str(user_id) + ")"))
 
 def exceptionHandler(bot, update, nameModule, exception, args=['']):
-	log.error(str(exception)+ " - Module: " + nameModule + " Line "+ str(exc_info()[2].tb_lineno))
+	log.error(str(exception)+ " - Module: " + nameModule + " Line "+
+	 (str(exc_info()[2].tb_lineno) if exc_info()[2] != None else "None"))
 	bot.sendMessage(chat_id=chat_id, text=ms.errorExecCommandUser, reply_to_message_id=message.message_id)
 	bot.sendMessage(chat_id=chatIDDeveloper, text=ms.errorExecCommandAdmin.replace("$args1",
 	message.text.split(' ')[0] + ' ' + ' '.join(args) + ' --> ' + username + " (chat_id:" + str(chat_id) + " , user_id:"+ str(user_id) + ")"))

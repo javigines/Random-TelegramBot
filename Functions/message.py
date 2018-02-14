@@ -73,3 +73,7 @@ flipTail = "Cruz"
 # Command /random
 numberAnswer = "Ha salido el $args1"
 noNumber = "No has introducido un número válido"
+
+# Command /shortLink
+shortLinkMessage = "Aquí tienes tu link acortado: $args1"
+shortLinkNoLink = "Tienes que introducir un link junto con el comando"

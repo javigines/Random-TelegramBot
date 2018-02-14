@@ -20,7 +20,7 @@ def flip(bot, update):
 # Forward Message
 def getInfo(bot, update):
 	bd.startWithCommand(bot, update)
-	
+
 	bot.sendMessage(chat_id=bd.chat_id, text=rf.forwardedMessageFunction(bd.message) , reply_to_message_id=bd.message.message_id)
 
 
@@ -66,8 +66,30 @@ def imgur(bot, update):
 	bd.startWithCommand(bot, update)
 
 #Command /shortLink
-def shortLink(bot, update):
-	bd.startWithCommand(bot, update)
+def shortLink(bot, update, args=None):
+	bd.startWithCommand(bot, update, args)
+
+	if args is None or args == '' or args == []:
+		bot.sendMessage(chat_id=bd.chat_id, text=ms.shortLinkNoLink , reply_to_message_id=bd.message.message_id)
+
+
+	if bd.shorterGoogleToken == '':
+		try:
+			token_file = open("token.txt", 'r')
+			bd.shorterGoogleToken = token_file.read().splitlines()[1]
+		except Exception as e:
+			bd.exceptionHandler(bot, update, __name__, "Ha ocurrido un error en la lectura del token de google, " + str(e), args)
+			return
+		token_file.close()
+
+
+	state, shortLink = rf.shortLinkFunction(''.join(args), bd.shorterGoogleToken)
+	if state:
+		bot.sendMessage(chat_id=bd.chat_id, text=ms.shortLinkMessage.replace("$args1", shortLink) , reply_to_message_id=bd.message.message_id)
+	else:
+		bd.exceptionHandler(bot, update, __name__, shortLink, args)
+
+
 
 #Command /note
 def note(bot, update):

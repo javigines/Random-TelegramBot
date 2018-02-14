@@ -44,10 +44,8 @@ except Exception as e:
 	print("Se ha generado la siguiente excepción:\n\n"+str(e)+"\n\nCorrijala para ejecutar el programa.")
 	os._exit(1)
 
-token = token_file.readline()
+updater = Updater(token_file.read().splitlines()[0], workers=200)
 token_file.close()
-
-updater = Updater(token, workers=200)
 dispatcher = updater.dispatcher
 dispatcher.add_error_handler(bd.basicErrorTelegramHandler)
 
@@ -103,7 +101,7 @@ case_handler = CommandHandler('case', rc.case, pass_args=False, allow_edited=Tru
 dispatcher.add_handler(case_handler)
 imgur_handler = CommandHandler('imgur', rc.imgur, pass_args=False, allow_edited=True)
 dispatcher.add_handler(imgur_handler)
-shortLink_handler = CommandHandler('shortLink', rc.shortLink, pass_args=False, allow_edited=True)
+shortLink_handler = CommandHandler('shortLink', rc.shortLink, pass_args=True, allow_edited=True)
 dispatcher.add_handler(shortLink_handler)
 note_handler = CommandHandler('note', rc.note, pass_args=False, allow_edited=True)
 dispatcher.add_handler(note_handler)
@@ -119,6 +117,6 @@ dispatcher.add_handler(InlineQueryHandler(iq.inlinequery))
 updater.start_polling(timeout=30, read_latency=5)
 logging.info('MainBot Completly Loaded.')
 logging.info('Bot Working.')
-updater.bot.sendMessage(chat_id=bd.chatIDDeveloper, text="Bot Iniciado")
+updater.bot.sendMessage(chat_id=bd.chatIDDeveloper, text="Bot Iniciado", disable_notification=True)
 
 updater.idle()
