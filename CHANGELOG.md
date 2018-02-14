@@ -9,7 +9,7 @@ All notable changes will be documented in this file.
 - Command /anonymousMessage (Speak?¿)
 - Command /note
 
-## [0.0.3 - Snapshot.1c] - 2018-02-14
+## [0.0.3 - Snapshot.1d] - 2018-02-14
 ### Added
 - Command /shortLink
 - Added /help text

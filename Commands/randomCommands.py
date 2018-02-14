@@ -42,7 +42,7 @@ def stopwatch(bot, update):
 	bot.sendMessage(chat_id=bd.chat_id, text=ms.commandWIP , reply_to_message_id=bd.message.message_id)
 
 #Command /countdown
-def countdown(bot, update):
+def countdown(bot, update, args=None):
 	bd.startWithCommand(bot, update)
 
 	bot.sendMessage(chat_id=bd.chat_id, text=ms.commandWIP , reply_to_message_id=bd.message.message_id)
@@ -83,7 +83,7 @@ def shortLink(bot, update, args=None):
 
 	if args is None or args == '' or args == []:
 		bot.sendMessage(chat_id=bd.chat_id, text=ms.shortLinkNoLink , reply_to_message_id=bd.message.message_id)
-
+		return
 
 	if bd.shorterGoogleToken == '':
 		try:

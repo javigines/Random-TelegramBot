@@ -18,7 +18,7 @@ import Functions.message as ms								## Own module
 def start(bot, update):
 	bd.startWithCommand(bot, update)
 
-	bot.sendMessage(chat_id=bd.chat_id, text=ms.helpOrStart, reply_to_message_id=bd.message.message_id)
+	bot.sendMessage(chat_id=bd.chat_id, text=ms.helpOrStart, reply_to_message_id=bd.message.message_id, disable_web_page_preview=True, parse_mode="MARKDOWN")
 
 
 # Command /restartP or /rebootP (Private)
@@ -74,7 +74,6 @@ def leaveGroup(bot, update):
 			bd.userNotAuthorizedMessage(bot, update)
 	else:
 		bot.sendMessage(chat_id=bd.chat_id, text=ms.notGroupLeave, reply_to_message_id=bd.message.message_id)
-
 
 
 

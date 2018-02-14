@@ -7,25 +7,27 @@ log = logging.getLogger(__name__)
 
 # Command /help or /start
 helpOrStart = ('Las funciones y comandos del bot son los siguiente:\n\n'+
-				'/anonymousMessage - Mensaje anónimo para quien tu quieras que se lo mande.\n'+
-				'/countdown - Cuenta atrás desde el valor que tú elijas.\n'+
-				'/flip - ¿Cuántas veces has querido lanzar una moneda para echar algo a suertes? Este es tu comando. Comando Inline.\n'+
-				'/help - Esta ayuda\n'+
-				'/newvote - Te hago una votacion para que la envies.\n' +
-				'/random (Número) - Un número random del 0 al 10. Me puedes indicar un número y lo usaré como valor máximo. Comando Inline.\n'+
-				'/remindme - Te envio una notificación en la fecha que me indiques. \n'+
-				'/secretmessage - Envio un mensaje secreto entre tu y quien elijas.\n'+
-				'/shortlink http://example.com - Te acorto el link de la web que me mandes.\n'+
-				'/stopwatch - ¿Quieres un cronometro? Yo puedo servirte para eso.\n'+
-				'También puedo darte datos de interes de un usuario si me reenvias un mensaje suyo.'
+				'/anonymousMessage - (WIP) _Mensaje anónimo para quien tu quieras que se lo mande._\n'+
+				'/countdown - (WIP) _Cuenta atrás desde el valor que tú elijas._\n'+
+				'/flip - _¿Cuántas veces has querido lanzar una moneda para echar algo a suertes? Este es tu comando. Comando Inline._\n'+
+				'/help - _Esta ayuda._\n'+
+				'/newvote - (WIP) _Te hago una votacion para que la envies._\n' +
+				'/random (Número) - _Un número random del 0 al 10. Me puedes indicar un número y lo usaré como valor máximo. Comando Inline._\n'+
+				'/remindme - (WIP) _Te envio una notificación en la fecha que me indiques._\n'+
+				'/secretmessage - (WIP) _Envio un mensaje secreto entre tu y quien elijas._\n'+
+				'/shortlink http://example.com - _Te acorto el link de la web que me mandes._\n'+
+				'/stopwatch - (WIP) _¿Quieres un cronometro? Yo puedo servirte para eso._\n'+
+				'\n'+
+				'También puedo darte datos de interes de un usuario si me reenvias un mensaje suyo.\n'
 				'\n'+
 				'Admin Commands\n'+
-				'/leave - Si me encuentro en un grupo, lo abandono.\n'+
+				'/leave - _Si me encuentro en un grupo, lo abandono._\n'+
 				'\n'+
-				'/changelog - Por si tienes interés, aquí tienes los últimos cambios realizados.\n'+
-				'/contact - ¿Quieres contactar con el desarrollador? Escribe tu mensaje para que se lo envie.\n'+
+				'/changelog - _Por si tienes interés, aquí tienes los últimos cambios realizados._\n'+
+				'/contact - _¿Quieres contactar con el desarrollador? Escribe tu mensaje para que se lo envie._\n'+
 				'\n'+
-				'Un comando Inline significa que me puedes llamar desde cualquier chat escribiendo @randomutils_bot y pulsando la opción que quieras de las que te aparezcan.\n'
+				'Un comando Inline significa que me puedes llamar desde cualquier chat escribiendo @randomutils\_bot y pulsando la opción que quieras de las que te aparezcan.\n'
+				'\n'+
 				'Todos los parámetros entre paréntesis son opcionales. En el caso de usarlos, no incluir el paréntesis.\n'
 				)
 
