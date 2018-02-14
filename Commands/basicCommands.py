@@ -59,8 +59,13 @@ def stopP(bot, update):
 # Leave the group /leave
 def leaveGroup(bot, update):
 	bd.startWithCommand(bot, update)
+	
+	admin = False
+	for adminMember in bd.message.chat.get_administrators():
+		if adminMember['user']['id'] is bd.user_id:
+			admin = True
 
-	if bd.user_id == bd.chatIDDeveloper:
+	if bd.user_id == bd.chatIDDeveloper or admin or bd.message.chat.all_members_are_administrators:
 		if update.effective_chat != None and update.effective_chat.type != "private":
 			bot.sendMessage(chat_id=bd.chat_id, text=ms.leaving, reply_to_message_id=bd.message.message_id)
 			bot.getChat(chat_id=bd.chat_id).leave()

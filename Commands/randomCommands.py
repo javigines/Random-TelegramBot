@@ -17,15 +17,8 @@ def flip(bot, update):
 
 	bot.sendMessage(chat_id=bd.chat_id, text=rf.flipCoinFunction() , reply_to_message_id=bd.message.message_id)
 
-# Forward Message
-def getInfo(bot, update):
-	bd.startWithCommand(bot, update)
-
-	bot.sendMessage(chat_id=bd.chat_id, text=rf.forwardedMessageFunction(bd.message) , reply_to_message_id=bd.message.message_id)
-
-
 #Command /random
-def randomNumer(bot, update, args=None):
+def randomNumber(bot, update, args=None):
 	bd.startWithCommand(bot, update)
 
 	try:
@@ -36,34 +29,47 @@ def randomNumer(bot, update, args=None):
 	except ValueError as e:
 		bot.sendMessage(chat_id=bd.chat_id, text=ms.noNumber , reply_to_message_id=bd.message.message_id)
 
-
 #Command /remindMe
 def remindMe(bot, update, args=None):
 	bd.startWithCommand(bot, update)
+
+	bot.sendMessage(chat_id=bd.chat_id, text=ms.commandWIP , reply_to_message_id=bd.message.message_id)
 
 #Command /stopwatch
 def stopwatch(bot, update):
 	bd.startWithCommand(bot, update)
 
+	bot.sendMessage(chat_id=bd.chat_id, text=ms.commandWIP , reply_to_message_id=bd.message.message_id)
+
 #Command /newVote
 def newVote(bot, update):
 	bd.startWithCommand(bot, update)
+
+	bot.sendMessage(chat_id=bd.chat_id, text=ms.commandWIP , reply_to_message_id=bd.message.message_id)
 
 #Command /secretMessage
 def secretMessage(bot, update, args=None):
 	bd.startWithCommand(bot, update)
 
+	bot.sendMessage(chat_id=bd.chat_id, text=ms.commandWIP , reply_to_message_id=bd.message.message_id)
+
 #Command /anonymousMessage
 def anonymousMessage(bot, update, args=None):
 	bd.startWithCommand(bot, update)
+
+	bot.sendMessage(chat_id=bd.chat_id, text=ms.commandWIP , reply_to_message_id=bd.message.message_id)
 
 #Command /case
 def case(bot, update):
 	bd.startWithCommand(bot, update)
 
+	bot.sendMessage(chat_id=bd.chat_id, text=ms.commandWIP , reply_to_message_id=bd.message.message_id)
+
 #Command /imgur
 def imgur(bot, update):
 	bd.startWithCommand(bot, update)
+
+	bot.sendMessage(chat_id=bd.chat_id, text=ms.commandWIP , reply_to_message_id=bd.message.message_id)
 
 #Command /shortLink
 def shortLink(bot, update, args=None):
@@ -89,12 +95,18 @@ def shortLink(bot, update, args=None):
 	else:
 		bd.exceptionHandler(bot, update, __name__, shortLink, args)
 
-
-
 #Command /note
 def note(bot, update):
 	bd.startWithCommand(bot, update)
 
+	bot.sendMessage(chat_id=bd.chat_id, text=ms.commandWIP , reply_to_message_id=bd.message.message_id)
+
+
+# Forward Message
+def forwardMessage(bot, update):
+	bd.startWithCommand(bot, update)
+
+	bot.sendMessage(chat_id=bd.chat_id, text=rf.forwardedMessageFunction(bd.message) , reply_to_message_id=bd.message.message_id)
 
 
 

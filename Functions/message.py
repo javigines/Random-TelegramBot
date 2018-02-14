@@ -7,18 +7,24 @@ log = logging.getLogger(__name__)
 
 # Command /help or /start
 helpOrStart = ('Las funciones y comandos del bot son los siguiente:\n\n'+
-				'/birthday 23/01/1997 - Añade tu cumpleaños al bot\n'+
-				'/birthdayList (january|18/01/2017|2017)) - Listado de todos los cumpleaños o de los que se encuentren en la fecha.\n'+
-				'/changelog - Últimos cambios en actualizaciones del bot\n'+
-				'/contact ExampleMessage - Manda tu mensaje/sugerencia/bug al desarrollador.\n' +
-				'/eventList (january|18/01/2017|2017) - Listado de todos los eventos o de los que se encuentren en la fecha.\n'+
+				'/anonymousMessage - Mensaje anónimo para quien tu quieras que se lo mande.\n'+
+				'/countdown - Cuenta atrás desde el valor que tú elijas.\n'+
+				'/flip - ¿Cuántas veces has querido lanzar una moneda para echar algo a suertes? Este es tu comando. Comando Inline.\n'+
 				'/help - Esta ayuda\n'+
+				'/newvote - Te hago una votacion para que la envies.\n' +
+				'/random (Número) - Un número random del 0 al 10. Me puedes indicar un número y lo usaré como valor máximo. Comando Inline.\n'+
+				'/remindme - Te envio una notificación en la fecha que me indiques. \n'+
+				'/secretmessage - Envio un mensaje secreto entre tu y quien elijas.\n'+
+				'/shortlink http://example.com - Te acorto el link de la web que me mandes.\n'+
+				'/stopwatch - ¿Quieres un cronometro? Yo puedo servirte para eso.\n'+
+				'También puedo darte datos de interes de un usuario si me reenvias un mensaje suyo.'
 				'\n'+
 				'Admin Commands\n'+
-				'/event Título del Evento | Fecha del Evento con Hora y Duración. Formato:(17/06/2017 18:45 +04:30) | (Impartido por) | (Descripción del Evento) | (Precio del Evento)\n'+
-				'- En el comando /event campos opcionales no usados dejarlos en blanco pero con los separadores |\n'+
-				'/removeB @Peter - Borra el cumpleaños de la persona definida\n'+
+				'/leave - Si me encuentro en un grupo, lo abandono.\n'+
 				'\n'+
+				'/changelog - Por si tienes interés, aquí tienes los últimos cambios realizados.\n'+
+				'/contact - ¿Quieres contactar con el desarrollador? Escribe tu mensaje para que se lo envie.\n'+
+				'Un comando Inline significa que me puedes llamar desde cualquier chat escribiendo @randomutils_bot y pulsando la opción que quieras de las que te aparezcan.\n'
 				'Todos los parámetros entre paréntesis son opcionales. En el caso de usarlos, no incluir el paréntesis.\n'
 				)
 
@@ -62,7 +68,7 @@ errorExecCommandUser = 'Ha ocurrido un error y se ha informado de él.'
 userNotAuthorizedCommand = "Un usuario esta intentando usar un comando no autorizado:\n$args1"
 notAdmin = ['No intentes hacer lo que no debes.',
 			'Estás tocando algo que no debes, huye mientras puedas, es una amenaza.']
-
+commandWIP = 'The command is not avalible yet, we are working in bring it as soon as possible.'
 
 
 # Command or Inline /flip

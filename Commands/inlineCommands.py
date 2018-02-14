@@ -22,6 +22,13 @@ def inlinequery(bot, update):
             description="Flip a Coin",
             input_message_content=InputTextMessageContent(
                  rf.flipCoinFunction())
+        ),
+        InlineQueryResultArticle(
+            id=uuid4(),
+            title="Random",
+            description="Random number 0 to 10",
+            input_message_content=InputTextMessageContent(
+                 rf.randomNumberFunction())
         )
     ]
 

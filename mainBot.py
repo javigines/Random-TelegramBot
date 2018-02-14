@@ -83,13 +83,15 @@ logging.info('Utils commands loaded correctly.')
 # Random Commands
 flip_handler = CommandHandler('flip', rc.flip, pass_args=False, allow_edited=True)
 dispatcher.add_handler(flip_handler)
-getInfo_handler = CommandHandler('getInfo', rc.getInfo, pass_args=False, allow_edited=True)
-dispatcher.add_handler(getInfo_handler)
-randomNumer_handler = CommandHandler('random', rc.randomNumer, pass_args=True, allow_edited=True)
-dispatcher.add_handler(randomNumer_handler)
+randomNumber_handler = CommandHandler('random', rc.randomNumber, pass_args=True, allow_edited=True)
+dispatcher.add_handler(randomNumber_handler)
+shortLink_handler = CommandHandler('shortLink', rc.shortLink, pass_args=True, allow_edited=True)
+dispatcher.add_handler(shortLink_handler)
 remindMe_handler = CommandHandler('remindMe', rc.remindMe, pass_args=False, allow_edited=True)
 dispatcher.add_handler(remindMe_handler)
 stopwatch_handler = CommandHandler('stopwatch', rc.stopwatch, pass_args=False, allow_edited=True)
+dispatcher.add_handler(stopwatch_handler)
+stopwatch_handler = CommandHandler('countdown', rc.countdown, pass_args=True, allow_edited=False)
 dispatcher.add_handler(stopwatch_handler)
 newVote_handler = CommandHandler('newVote', rc.newVote, pass_args=False, allow_edited=True)
 dispatcher.add_handler(newVote_handler)
@@ -97,17 +99,18 @@ secretMessage_handler = CommandHandler('secretMessage', rc.secretMessage, pass_a
 dispatcher.add_handler(secretMessage_handler)
 anonymousMessage_handler = CommandHandler('anonymousMessage', rc.anonymousMessage, pass_args=False, allow_edited=True)
 dispatcher.add_handler(anonymousMessage_handler)
+
 case_handler = CommandHandler('case', rc.case, pass_args=False, allow_edited=True)
 dispatcher.add_handler(case_handler)
 imgur_handler = CommandHandler('imgur', rc.imgur, pass_args=False, allow_edited=True)
 dispatcher.add_handler(imgur_handler)
-shortLink_handler = CommandHandler('shortLink', rc.shortLink, pass_args=True, allow_edited=True)
-dispatcher.add_handler(shortLink_handler)
 note_handler = CommandHandler('note', rc.note, pass_args=False, allow_edited=True)
 dispatcher.add_handler(note_handler)
 logging.info('Random commands loaded correctly.')
 
-forwardMessages_handler = MessageHandler(Filters.forwarded, rc.getInfo)
+
+# Forward Messages
+forwardMessages_handler = MessageHandler(Filters.forwarded, rc.forwardMessage)
 dispatcher.add_handler(forwardMessages_handler)
 
 
