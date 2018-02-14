@@ -18,7 +18,6 @@ All notable changes will be documented in this file.
 ### Changed
 - Tokens reading
 - /leave command for admins
--
 
 ## [0.0.2 - Snapshot.1b] - 2018-02-13
 ### Added

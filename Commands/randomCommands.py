@@ -41,6 +41,12 @@ def stopwatch(bot, update):
 
 	bot.sendMessage(chat_id=bd.chat_id, text=ms.commandWIP , reply_to_message_id=bd.message.message_id)
 
+#Command /countdown
+def countdown(bot, update):
+	bd.startWithCommand(bot, update)
+
+	bot.sendMessage(chat_id=bd.chat_id, text=ms.commandWIP , reply_to_message_id=bd.message.message_id)
+
 #Command /newVote
 def newVote(bot, update):
 	bd.startWithCommand(bot, update)

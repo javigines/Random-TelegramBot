@@ -24,6 +24,7 @@ helpOrStart = ('Las funciones y comandos del bot son los siguiente:\n\n'+
 				'\n'+
 				'/changelog - Por si tienes interés, aquí tienes los últimos cambios realizados.\n'+
 				'/contact - ¿Quieres contactar con el desarrollador? Escribe tu mensaje para que se lo envie.\n'+
+				'\n'+
 				'Un comando Inline significa que me puedes llamar desde cualquier chat escribiendo @randomutils_bot y pulsando la opción que quieras de las que te aparezcan.\n'
 				'Todos los parámetros entre paréntesis son opcionales. En el caso de usarlos, no incluir el paréntesis.\n'
 				)
