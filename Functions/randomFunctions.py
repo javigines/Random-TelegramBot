@@ -24,7 +24,7 @@ def flipCoinFunction():
     return ms.flipEdge
 
 
-def randomNumberFunction(number=11):
+def randomNumberFunction(number=10):
     log.info(number)
     return randint(0, number)
 
