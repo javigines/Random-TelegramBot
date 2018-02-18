@@ -1,3 +1,9 @@
+# -*- coding: utf-8 -*-
+# A library that provides functionality to the @RandomUtils_bot
+# Copyright (C) 2017-2018
+# Javier Gines Sanchez <software@javisite.com>
+#
+
 # Changelog
 All notable changes will be documented in this file.
 
@@ -19,6 +25,10 @@ All notable changes will be documented in this file.
 - Tokens reading
 - /leave command for admins
 - Improve leave command
+- Copyright update
+
+### Fixed
+- Timeout telegram API
 
 ## [0.0.2 - Snapshot.1b] - 2018-02-13
 ### Added

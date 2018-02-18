@@ -1,5 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+# A library that provides functionality to the @RandomUtils_bot
+# Copyright (C) 2017-2018
+# Javier Gines Sanchez <software@javisite.com>
+#
+
+import logging												## System module
+log = logging.getLogger(__name__)
 
 from uuid import uuid4
 from random import randint									## System module
@@ -33,3 +40,5 @@ def inlinequery(bot, update):
     ]
 
     update.inline_query.answer(results, cache_time=1)
+
+log.info('InlineCommands Module Loaded.')

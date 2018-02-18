@@ -1,5 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+# A library that provides functionality to the @RandomUtils_bot
+# Copyright (C) 2017-2018
+# Javier Gines Sanchez <software@javisite.com>
+#
 
 import logging												## System module
 log = logging.getLogger(__name__)
@@ -86,3 +90,6 @@ noNumber = "No has introducido un número válido"
 # Command /shortLink
 shortLinkMessage = "Aquí tienes tu link acortado: $args1"
 shortLinkNoLink = "Tienes que introducir un link junto con el comando"
+
+
+log.info('Message Module Loaded.')
