@@ -9,7 +9,7 @@ All notable changes will be documented in this file.
 - Command /anonymousMessage (Speak?¿)
 - Command /note
 
-## [0.0.3 - Snapshot.1d] - 2018-02-14
+## [0.0.3 - Snapshot.1e] - 2018-02-18
 ### Added
 - Command /shortLink
 - Added /help text
@@ -18,6 +18,7 @@ All notable changes will be documented in this file.
 ### Changed
 - Tokens reading
 - /leave command for admins
+- Improve leave command
 
 ## [0.0.2 - Snapshot.1b] - 2018-02-13
 ### Added
