@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
+<<<<<<< HEAD
 # A library that provides functionality to the @randomutils_bot
+=======
+# A library that provides functionality to the @RandomUtils_bot
+>>>>>>> f3c0e9322414ebc394f2a4c1a2b915057b626cb2
 # Copyright (C) 2017-2018
 # Javier Gines Sanchez <software@javisite.com>
 #
@@ -15,7 +19,7 @@ All notable changes will be documented in this file.
 - Command /anonymousMessage (Speak?¿)
 - Command /note
 
-## [0.0.3 - Snapshot.1d] - 2018-02-14
+## [0.0.3 - Snapshot.1e] - 2018-02-18
 ### Added
 - Command /shortLink
 - Added /help text
@@ -25,6 +29,11 @@ All notable changes will be documented in this file.
 ### Changed
 - Tokens reading
 - /leave command for admins
+- Improve leave command
+- Copyright update
+
+### Fixed
+- Timeout telegram API
 
 ## [0.0.2 - Snapshot.1b] - 2018-02-13
 ### Added

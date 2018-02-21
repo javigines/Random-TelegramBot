@@ -90,3 +90,6 @@ noNumber = "No has introducido un número válido"
 # Command /shortLink
 shortLinkMessage = "Aquí tienes tu link acortado: $args1"
 shortLinkNoLink = "Tienes que introducir un link junto con el comando"
+
+
+log.info('Message Module Loaded.')

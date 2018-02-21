@@ -121,7 +121,7 @@ dispatcher.add_handler(forwardMessages_handler)
 # Random Inline
 dispatcher.add_handler(InlineQueryHandler(iq.inlinequery))
 
-updater.start_polling(timeout=30, read_latency=5)
+updater.start_polling(poll_interval = 1.0, timeout=20, read_latency=5)
 logging.info('MainBot Completly Loaded.')
 logging.info('Bot Working.')
 updater.bot.sendMessage(chat_id=bd.chatIDDeveloper, text="Bot Iniciado", disable_notification=True)

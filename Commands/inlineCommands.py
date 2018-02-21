@@ -8,6 +8,9 @@
 import logging												## System module
 log = logging.getLogger(__name__)
 
+import logging												## System module
+log = logging.getLogger(__name__)
+
 from uuid import uuid4                                      ## System module
 
 from telegram import InlineQueryResultArticle, InputTextMessageContent
@@ -37,6 +40,5 @@ def inlinequery(bot, update):
     ]
 
     update.inline_query.answer(results, cache_time=1)
-
 
 log.info('InlineCommands Module Loaded.')
