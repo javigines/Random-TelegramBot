@@ -1,15 +1,19 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+# A library that provides functionality to the @randomutils_bot
+# Copyright (C) 2017-2018
+# Javier Gines Sanchez <software@javisite.com>
+#
 
-from uuid import uuid4
-from random import randint									## System module
+import logging												## System module
+log = logging.getLogger(__name__)
 
-from telegram import InlineQueryResultArticle, ParseMode, \
-    InputTextMessageContent
+from uuid import uuid4                                      ## System module
 
-import Functions.randomFunctions as rf
+from telegram import InlineQueryResultArticle, InputTextMessageContent
 
-import Functions.basicData as bd
+import Functions.randomFunctions as rf                      ## Own module
+import Functions.basicData as bd                            ## Own module
 
 
 def inlinequery(bot, update):
@@ -33,3 +37,6 @@ def inlinequery(bot, update):
     ]
 
     update.inline_query.answer(results, cache_time=1)
+
+
+log.info('InlineCommands Module Loaded.')

@@ -1,12 +1,15 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+# A library that provides functionality to the @randomutils_bot
+# Copyright (C) 2017-2018
+# Javier Gines Sanchez <software@javisite.com>
+#
 
 import logging												## System module
 log = logging.getLogger(__name__)
 
 from subprocess import call									## System module
 from os import _exit, getpid								## System module
-from sys import exc_info									## System module
 from platform import system									## System module
 from random import randint									## System module
 
@@ -74,7 +77,6 @@ def leaveGroup(bot, update):
 			bd.userNotAuthorizedMessage(bot, update)
 	else:
 		bot.sendMessage(chat_id=bd.chat_id, text=ms.notGroupLeave, reply_to_message_id=bd.message.message_id)
-
 
 
 # Changelog command /changelog

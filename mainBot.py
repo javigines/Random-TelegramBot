@@ -1,5 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+# A library that provides functionality to the @randomutils_bot
+# Copyright (C) 2017-2018
+# Javier Gines Sanchez <software@javisite.com>
+#
 
 
 import logging																## System module
@@ -17,8 +21,8 @@ except Exception as e:
 
 logging.info(('-'*30)+' Bot Starting '+('-'*30))
 
-from sys import argv										## System module
-from subprocess import call									## System module
+from sys import argv														## System module
+from subprocess import call													## System module
 from time import sleep														## System module
 # Usefull for /restartB
 if(len(argv)>1):
@@ -30,12 +34,12 @@ if(len(argv)>1):
 
 from telegram.ext import Updater, CommandHandler, InlineQueryHandler, MessageHandler, Filters
 
-import Functions.basicData as bd
-import Commands.basicCommands as bc
-import Commands.randomCommands as rc
-import Commands.utilsCommands as uc
+import Functions.basicData as bd											## Own module
+import Commands.basicCommands as bc											## Own module
+import Commands.randomCommands as rc										## Own module
+import Commands.utilsCommands as uc											## Own module
 
-import Commands.inlineCommands as iq
+import Commands.inlineCommands as iq										## Own module
 
 
 try:
@@ -81,23 +85,23 @@ logging.info('Utils commands loaded correctly.')
 
 
 # Random Commands
-flip_handler = CommandHandler('flip', rc.flip, pass_args=False, allow_edited=True)
+flip_handler = CommandHandler(list(['flip','fl']), rc.flip, pass_args=False, allow_edited=True)
 dispatcher.add_handler(flip_handler)
-randomNumber_handler = CommandHandler('random', rc.randomNumber, pass_args=True, allow_edited=True)
+randomNumber_handler = CommandHandler(list(['random','rand']), rc.randomNumber, pass_args=True, allow_edited=True)
 dispatcher.add_handler(randomNumber_handler)
-shortLink_handler = CommandHandler('shortLink', rc.shortLink, pass_args=True, allow_edited=True)
+shortLink_handler = CommandHandler(list(['shortLink','sl']), rc.shortLink, pass_args=True, allow_edited=True)
 dispatcher.add_handler(shortLink_handler)
-remindMe_handler = CommandHandler('remindMe', rc.remindMe, pass_args=False, allow_edited=True)
+remindMe_handler = CommandHandler(list(['remindMe','rm']), rc.remindMe, pass_args=False, allow_edited=True)
 dispatcher.add_handler(remindMe_handler)
-stopwatch_handler = CommandHandler('stopwatch', rc.stopwatch, pass_args=False, allow_edited=True)
+stopwatch_handler = CommandHandler(list(['stopwatch','sw']), rc.stopwatch, pass_args=False, allow_edited=True)
 dispatcher.add_handler(stopwatch_handler)
-countdown_handler = CommandHandler('countdown', rc.countdown, pass_args=True, allow_edited=False)
+countdown_handler = CommandHandler(list(['countdown','cd']), rc.countdown, pass_args=True, allow_edited=False)
 dispatcher.add_handler(countdown_handler)
-newVote_handler = CommandHandler('newVote', rc.newVote, pass_args=False, allow_edited=True)
+newVote_handler = CommandHandler(list(['newVote','nv']), rc.newVote, pass_args=False, allow_edited=True)
 dispatcher.add_handler(newVote_handler)
-secretMessage_handler = CommandHandler('secretMessage', rc.secretMessage, pass_args=False, allow_edited=True)
+secretMessage_handler = CommandHandler(list(['secretMessage','sm']), rc.secretMessage, pass_args=False, allow_edited=True)
 dispatcher.add_handler(secretMessage_handler)
-anonymousMessage_handler = CommandHandler('anonymousMessage', rc.anonymousMessage, pass_args=False, allow_edited=True)
+anonymousMessage_handler = CommandHandler(list(['anonymousMessage','am']), rc.anonymousMessage, pass_args=False, allow_edited=True)
 dispatcher.add_handler(anonymousMessage_handler)
 
 case_handler = CommandHandler('case', rc.case, pass_args=False, allow_edited=True)

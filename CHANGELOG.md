@@ -1,3 +1,9 @@
+# -*- coding: utf-8 -*-
+# A library that provides functionality to the @randomutils_bot
+# Copyright (C) 2017-2018
+# Javier Gines Sanchez <software@javisite.com>
+#
+
 # Changelog
 All notable changes will be documented in this file.
 
@@ -14,6 +20,7 @@ All notable changes will be documented in this file.
 - Command /shortLink
 - Added /help text
 - Add /random command to Inline
+- Short Commands 
 
 ### Changed
 - Tokens reading

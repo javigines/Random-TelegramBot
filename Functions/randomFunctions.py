@@ -1,21 +1,25 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+# A library that provides functionality to the @randomutils_bot
+# Copyright (C) 2017-2018
+# Javier Gines Sanchez <software@javisite.com>
+#
 
 
 import logging												## System module
 log = logging.getLogger(__name__)
 
-from random import randint
+from random import randint                                  ## System module
+import requests                                             ## System module
+import json                                                 ## System module
 
-import requests
-import json
-
-import Functions.message as ms										    ## Own module
+import Functions.message as ms						        ## Own module
 
 
 
 
 def flipCoinFunction():
+
     coin = randint(1, 6000)
     if coin < 3000:
         return ms.flipHead
@@ -25,7 +29,6 @@ def flipCoinFunction():
 
 
 def randomNumberFunction(number=10):
-    log.info(number)
     return randint(0, number)
 
 

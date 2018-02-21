@@ -1,14 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
+# A library that provides functionality to the @randomutils_bot
+# Copyright (C) 2017-2018
+# Javier Gines Sanchez <software@javisite.com>
+#
 
 import logging												## System module
 log = logging.getLogger(__name__)
 
-import Functions.randomFunctions as rf
-
-import Functions.basicData as bd
-import Functions.message as ms										    ## Own module
+import Functions.randomFunctions as rf						## Own module
+import Functions.basicData as bd							## Own module
+import Functions.message as ms								## Own module
 
 
 #Command /flip
@@ -56,6 +58,7 @@ def newVote(bot, update):
 #Command /secretMessage
 def secretMessage(bot, update, args=None):
 	bd.startWithCommand(bot, update)
+
 
 	bot.sendMessage(chat_id=bd.chat_id, text=ms.commandWIP , reply_to_message_id=bd.message.message_id)
 
