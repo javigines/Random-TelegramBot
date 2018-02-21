@@ -19,7 +19,7 @@ helpOrStart = ('Las funciones y comandos del bot son los siguiente:\n\n'+
 				'/random (Número) or /rand - _Un número random del 0 al 10. Me puedes indicar un número y lo usaré como valor máximo. Comando Inline._\n'+
 				'/remindme or /rm - (WIP) _Te envio una notificación en la fecha que me indiques._\n'+
 				'/secretmessage or /sm - (WIP) _Envio un mensaje secreto entre tu y quien elijas._\n'+
-				'/shortlink http://example.com or /sl - _Te acorto el link de la web que me mandes._\n'+
+				'/shortlink http://example.com or /sl - _Te acorto el link de la web que me mandes. Comando Inline._\n'+
 				'/stopwatch or /sw - (WIP) _¿Quieres un cronometro? Yo puedo servirte para eso._\n'+
 				'\n'+
 				'También puedo darte datos de interes de un usuario si me reenvias un mensaje suyo.\n'
