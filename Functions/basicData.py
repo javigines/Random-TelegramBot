@@ -39,7 +39,6 @@ def startWithCommand(bot, update, args=['']):
 	chat_id = message.chat.id
 	user_id = message.from_user.id
 
-	log.info(str(message.photo))
 	if message.forward_from != None:
 		textToLog = "Forward Message" + ' --> ' + username + " (chat_id:" + str(chat_id) + " , user_id:"+ str(user_id) + ")"
 	elif message.text != None:

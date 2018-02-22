@@ -8,7 +8,9 @@
 
 import logging																## System module
 import os
-logFile= os.path.dirname(os.path.abspath(__file__)) + os.sep+'/.logs/logCoreBot.log'
+if not os.path.exists(os.path.dirname(__file__) + os.sep+'.logs' + os.sep):
+		os.makedirs(os.path.dirname(__file__) + os.sep+'.logs' + os.sep)
+logFile= os.path.dirname(__file__) + os.sep+'.logs' + os.sep+ 'logCoreBot.log'
 try:
 	logging.basicConfig(
 	filename=logFile,
@@ -45,7 +47,7 @@ import Commands.inlineCommands as iq
 try:
 	token_file = open("token.txt", 'r')
 except Exception as e:
-	print("Se ha generado la siguiente excepción:\n\n"+str(e)+"\n\nCorrijala para ejecutar el programa.")
+	logging.error("Exception Handler:"+str(e))
 	os._exit(1)
 
 updater = Updater(token_file.read().splitlines()[0], workers=200)
@@ -121,7 +123,7 @@ dispatcher.add_handler(forwardMessages_handler)
 # Random Inline
 dispatcher.add_handler(InlineQueryHandler(iq.inlinequery))
 
-updater.start_polling(poll_interval = 1.0, timeout=20, read_latency=5)
+updater.start_polling(poll_interval = 1.0, timeout=20, read_latency=5, clean=True)
 logging.info('MainBot Completly Loaded.')
 logging.info('Bot Working.')
 updater.bot.sendMessage(chat_id=bd.chatIDDeveloper, text="Bot Iniciado", disable_notification=True)
