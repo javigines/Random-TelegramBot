@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# A library that provides functionality to the @RandomUtils_bot
+# A library that provides functionality to the @randomutils_bot
 # Copyright (C) 2017-2018
 # Javier Gines Sanchez <software@javisite.com>
 #
@@ -11,16 +11,16 @@ log = logging.getLogger(__name__)
 
 # Command /help or /start
 helpOrStart = ('Las funciones y comandos del bot son los siguiente:\n\n'+
-				'/anonymousMessage - (WIP) _Mensaje anónimo para quien tu quieras que se lo mande._\n'+
-				'/countdown - (WIP) _Cuenta atrás desde el valor que tú elijas._\n'+
-				'/flip - _¿Cuántas veces has querido lanzar una moneda para echar algo a suertes? Este es tu comando. Comando Inline._\n'+
+				'/anonymousMessage or /am - (WIP) _Mensaje anónimo para quien tu quieras que se lo mande._\n'+
+				'/countdown or /cd - (WIP) _Cuenta atrás desde el valor que tú elijas._\n'+
+				'/flip or /fl - _¿Cuántas veces has querido lanzar una moneda para echar algo a suertes? Este es tu comando. Comando Inline._\n'+
 				'/help - _Esta ayuda._\n'+
-				'/newvote - (WIP) _Te hago una votacion para que la envies._\n' +
-				'/random (Número) - _Un número random del 0 al 10. Me puedes indicar un número y lo usaré como valor máximo. Comando Inline._\n'+
-				'/remindme - (WIP) _Te envio una notificación en la fecha que me indiques._\n'+
-				'/secretmessage - (WIP) _Envio un mensaje secreto entre tu y quien elijas._\n'+
-				'/shortlink http://example.com - _Te acorto el link de la web que me mandes._\n'+
-				'/stopwatch - (WIP) _¿Quieres un cronometro? Yo puedo servirte para eso._\n'+
+				'/newvote or /nv - (WIP) _Te hago una votacion para que la envies._\n' +
+				'/random (Número) or /rand - _Un número random del 0 al 10. Me puedes indicar un número y lo usaré como valor máximo. Comando Inline._\n'+
+				'/remindme or /rm - (WIP) _Te envio una notificación en la fecha que me indiques._\n'+
+				'/secretmessage or /sm - (WIP) _Envio un mensaje secreto entre tu y quien elijas._\n'+
+				'/shortlink http://example.com or /sl - _Te acorto el link de la web que me mandes. Comando Inline._\n'+
+				'/stopwatch or /sw - (WIP) _¿Quieres un cronometro? Yo puedo servirte para eso._\n'+
 				'\n'+
 				'También puedo darte datos de interes de un usuario si me reenvias un mensaje suyo.\n'
 				'\n'+

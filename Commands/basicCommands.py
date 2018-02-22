@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# A library that provides functionality to the @RandomUtils_bot
+# A library that provides functionality to the @randomutils_bot
 # Copyright (C) 2017-2018
 # Javier Gines Sanchez <software@javisite.com>
 #
@@ -10,7 +10,6 @@ log = logging.getLogger(__name__)
 
 from subprocess import call									## System module
 from os import _exit, getpid								## System module
-from sys import exc_info									## System module
 from platform import system									## System module
 from random import randint									## System module
 

@@ -1,18 +1,18 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# A library that provides functionality to the @RandomUtils_bot
+# A library that provides functionality to the @randomutils_bot
 # Copyright (C) 2017-2018
 # Javier Gines Sanchez <software@javisite.com>
 #
 
-
 import logging												## System module
 log = logging.getLogger(__name__)
 
-import Functions.randomFunctions as rf
+import re
 
-import Functions.basicData as bd
-import Functions.message as ms										    ## Own module
+import Functions.randomFunctions as rf						## Own module
+import Functions.basicData as bd							## Own module
+import Functions.message as ms								## Own module
 
 
 #Command /flip
@@ -61,6 +61,7 @@ def newVote(bot, update):
 def secretMessage(bot, update, args=None):
 	bd.startWithCommand(bot, update)
 
+
 	bot.sendMessage(chat_id=bd.chat_id, text=ms.commandWIP , reply_to_message_id=bd.message.message_id)
 
 #Command /anonymousMessage
@@ -82,10 +83,11 @@ def imgur(bot, update):
 	bot.sendMessage(chat_id=bd.chat_id, text=ms.commandWIP , reply_to_message_id=bd.message.message_id)
 
 #Command /shortLink
-def shortLink(bot, update, args=None):
+def shortLink(bot, update, args=[]):
 	bd.startWithCommand(bot, update, args)
 
-	if args is None or args == '' or args == []:
+	urls = re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', ''.join(args))
+	if args is None or args == '' or args == [] or len(urls) == 0:
 		bot.sendMessage(chat_id=bd.chat_id, text=ms.shortLinkNoLink , reply_to_message_id=bd.message.message_id)
 		return
 
